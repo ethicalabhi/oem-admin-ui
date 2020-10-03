@@ -73,7 +73,7 @@ const Edit = () => {
 
 
   const fetchData = () => {
-    axios.get(`http://13.233.237.220:8091/getOemdetailsById?oem_id=${id}`).then(res => {
+    axios.get(`https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/getOemdetailsById?oem_id=${id}`).then(res => {
       const row = [];
       const subsidiaryData = [];
       const RnMCo = [];
@@ -121,14 +121,14 @@ const Edit = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    const res = await axios.put(`http://13.233.237.220:8091/updateOemDetailsByOemIdAndProductId`, { oem_id: id, productMasterRequestBean: [oem] });
+    const res = await axios.put(`https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/updateOemDetailsByOemIdAndProductId`, { oem_id: id, productMasterRequestBean: [oem] });
     if (res.status === 200) {
       window.location.reload(false);
     }
   };
 
   const deleteProduct = async (product_id) => {
-    await axios.delete(`http://13.233.237.220:8091/deleteOemDetailsByproductId?product_id=${product_id}`);
+    await axios.delete(`https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/deleteOemDetailsByproductId?product_id=${product_id}`);
     fetchData();
   };
 
