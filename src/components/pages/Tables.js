@@ -69,7 +69,7 @@ const Tables = () => {
   }
 
   const deleteData = async (id) => {
-    axios.delete(`http://13.233.237.220:8091/deleteOemDetailsByOemId?oem_id=${id}`);
+    axios.delete(`https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/deleteOemDetailsByOemId?oem_id=${id}`);
     fetchData();
   }
 
@@ -78,7 +78,7 @@ const Tables = () => {
   };
 
   const onSubmit = async (id) => {
-    const res = await axios.put(`http://13.233.237.220:8091/updateOemDetailsByOemID?oem_id=${id}`, oem_update);
+    const res = await axios.put(`https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/updateOemDetailsByOemID?oem_id=${id}`, oem_update);
     if (res.status === "200") {
       window.location.reload(false);
     } 
