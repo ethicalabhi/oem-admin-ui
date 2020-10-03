@@ -56,7 +56,7 @@ const Tables = () => {
   }, [])
 
   const fetchData = () => {
-    axios.get("http://13.233.237.220:8091/getOemdetails").then(res => {
+    axios.get("https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/getOemdetails").then(res => {
       const row = [];
       res.data.map((oem, index) => (
         row.push({oem_id: oem.oem_id, oem_name: oem.oem_name, oem_type: oem.oem_type, oem_logo: oem.oem_logo, action: <div className="btn-group" role="group" aria-label="Basic example"> <Link to={`/edit/${oem.oem_id}`}> <button type="button" className="btn btn-info">View</button> </Link><button type="button" className="btn btn-success" onClick={() => setOemUpdate({...oem_update, oem_id: oem.oem_id,oem_name: oem.oem_name,oem_logo: oem.oem_logo,oem_type: oem.oem_type})} data-toggle="modal" data-target="#exampleModal">Edit</button> <button type="button" className="btn btn-danger" onClick={() => deleteData(oem.oem_id)}>Delete</button> </div> })
