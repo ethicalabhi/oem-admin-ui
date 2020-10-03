@@ -25,13 +25,13 @@ const Servicecenter = () => {
       }, [])
     
       const fetchData = () => {
-        const res = axios.get("https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/getServiceCenterDetails").then(res => {
+        const res = axios.get("http://13.233.237.220:8091/getServiceCenterDetails").then(res => {
           setOem({ ...oem, oemData: res.data });
         })
       }
 
       const deleteData = async (id) => {
-        axios.delete(`https://cors-anywhere.herokuapp.com/http://13.233.237.220:8091/deleteServiceCenterDetails?service_centre_id=${id}`, oem);
+        axios.delete(`http://13.233.237.220:8091/deleteServiceCenterDetails?service_centre_id=${id}`, oem);
         fetchData();
       }
 
